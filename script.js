@@ -32,6 +32,27 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
+function game() {
+    let winsPlayer = 0;
+    let winsComputer = 0;
+    for (let i = 0; i < 5; i++) {
+        let result = playRound(playerSelection, computerSelection);
+        let winner = "vence";
+        let loser = "pierde"
+        if (result.includes(winner)) {
+            winsPlayer++;
+        } else if (result.includes(loser)) {
+            winsComputer++;
+        }
+    }
+    if (winsPlayer > winsComputer) {
+        return "You are the winner"
+    } else {
+        return "you are loser"
+    }
+}
+
+
 const playerSelection = "PiEdra";
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+console.log(game(playerSelection, computerSelection));
